@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Lucky Jewellers · Jodhpur</title>
+    <!-- Font Awesome 6 (free) for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #fcf8f0;  /* soft warm white */
+            color: #2e241f;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* decorative golden accent */
+        .gold-text {
+            color: #b78c4a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header */
+        header {
+            background: #1f2a2e;  /* deep charcoal with slight teal */
+            padding: 20px 0;
+            border-bottom: 4px solid #b78c4a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .shop-name {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #f5e7d9;
+        }
+
+        .shop-name i {
+            color: #d8b56e;
+            margin-right: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #cdbaa5;
+            margin-top: 6px;
+            word-spacing: 2px;
+        }
+
+        /* navigation */
+        nav {
+            background: #fffaf2;
+            border-bottom: 1px solid #e9d6bf;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            padding: 14px 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #3f3129;
+            font-size: 1.2rem;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a i {
+            color: #b78c4a;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b78c4a;
+            color: #000;
+        }
+
+        /* main sections */
+        .page-section {
+            background: white;
+            border-radius: 36px 36px 20px 20px;
+            margin: 40px 0;
+            padding: 40px 40px;
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.15);
+            border: 1px solid #f0e0ce;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 350;
+            border-left: 10px solid #b78c4a;
+            padding-left: 25px;
+            margin-bottom: 35px;
+            color: #2a1f18;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title i {
+            color: #b78c4a;
+            margin-right: 12px;
+        }
+
+        /* contact cards on home */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .info-card {
+            background: #fcf6ed;
+            padding: 28px 20px;
+            border-radius: 32px;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid #eddccb;
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -10px #e3c9ae;
+        }
+
+        .info-card i {
+            font-size: 2.8rem;
+            color: #b78c4a;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1f2a2e;
+            word-break: break-word;
+        }
+
+        .info-card .small-note {
+            font-size: 1rem;
+            color: #65544a;
+            margin-top: 8px;
+        }
+
+        .address-block {
+            background: #e9dfd1;
+            padding: 20px 30px;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            text-align: center;
+            color: #1f2a2e;
+            border: 1px dashed #b78c4a;
+            margin: 40px 0 20px;
+        }
+
+        .address-block i {
+            margin-right: 10px;
+            color: #886c41;
+        }
+
+        /* privacy / terms text styling */
+        .legal-text {
+            font-size: 1.1rem;
+            color: #2f2a26;
+        }
+
+        .legal-text h3 {
+            font-size: 1.8rem;
+            font-weight: 380;
+            margin: 30px 0 15px;
+            color: #4f3f33;
+            border-bottom: 1px solid #e7d7c4;
+            padding-bottom: 8px;
+        }
+
+        .legal-text h4 {
+            font-size: 1.3rem;
+            margin: 25px 0 10px;
+            color: #6d4f35;
+        }
+
+        .legal-text p {
+            margin-bottom: 18px;
+        }
+
+        .legal-text ul {
+            margin: 10px 0 25px 40px;
+        }
+
+        .legal-text li {
+            margin: 6px 0;
+        }
+
+        /* contact form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            max-width: 700px;
+            margin: 30px auto 10px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .form-group {
+            flex: 1 1 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #524438;
+            font-size: 1rem;
+        }
+
+        .form-group input, .form-group textarea {
+            background: #fcf6ef;
+            border: 1px solid #dbcbb8;
+            border-radius: 40px;
+            padding: 15px 22px;
+            font-size: 1.1rem;
+            outline: none;
+            transition: 0.15s;
+        }
+
+        .form-group textarea {
+            border-radius: 30px;
+            resize: vertical;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #b78c4a;
+            box-shadow: 0 0 0 3px rgba(183,140,74,0.25);
+        }
+
+        .submit-btn {
+            background: #1f2a2e;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.4rem;
+            border-radius: 60px;
+            width: fit-content;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #b78c4a;
+            margin-top: 10px;
+        }
+
+        .submit-btn i {
+            color: #d8b56e;
+        }
+
+        .submit-btn:hover {
+            background: #b78c4a;
+            color: #1f2a2e;
+        }
+
+        .submit-btn:hover i {
+            color: #1f2a2e;
+        }
+
+        /* footer with copyright */
+        footer {
+            background: #1f2a2e;
+            color: #cdbcab;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 4px solid #b78c4a;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 0 5px;
+        }
+
+        .footer-links a {
+            color: #ecd6bf;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-bottom: 1px dotted transparent;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #b78c4a;
+            color: #f5d7b5;
+        }
+
+        .copyright {
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .copyright i {
+            color: #b78c4a;
+            margin: 0 6px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #4f443b;
+            width: 80%;
+            margin: 16px 0;
+        }
+
+        /* responsive */
+        @media (max-width: 650px) {
+            .section-title { font-size: 1.9rem; }
+            .info-card p { font-size: 1.2rem; }
+            .address-block { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="shop-name">
+            <i class="fas fa-gem"></i> Shree Lucky Jewellers
+        </div>
+        <div class="tagline">
+            <i class="fas fa-map-pin gold-text"></i> Rajasthan · Jodhpur  342027
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="container nav-links">
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#privacy"><i class="fas fa-lock"></i> Privacy</a>
+        <a href="#terms"><i class="fas fa-file-contract"></i> Terms</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <!-- ===== HOME (with all details) ===== -->
+    <section id="home" class="page-section">
+        <h2 class="section-title"><i class="fas fa-store-alt"></i> Shree Lucky Jewellers – Jodhpur</h2>
+        <div class="contact-grid">
+            <!-- phone -->
+            <div class="info-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call us</h3>
+                <p>9672009050</p>
+                <div class="small-note">Mon–Sat · 10am to 8pm</div>
+            </div>
+            <!-- email -->
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>shreeluckyjewellers<br>@gmail.com</p>
+                <div class="small-note">reply within 12hrs</div>
+            </div>
+            <!-- location -->
+            <div class="info-card">
+                <i class="fas fa-location-dot"></i>
+                <h3>Visit</h3>
+                <p>Rajasthan, Jodhpur<br>342027</p>
+                <div class="small-note">near clock tower</div>
+            </div>
+        </div>
+
+        <div class="address-block">
+            <i class="fas fa-map-marked-alt"></i> 
+            📍 22, Sardarpura, Jodhpur (Rajasthan) – 342027
+        </div>
+
+        <div style="text-align: center; font-size: 1.2rem; margin: 30px 0 10px; background: #eee6db; padding: 15px; border-radius: 60px;">
+            <i class="fas fa-certificate gold-text"></i> Traditional & modern jewellery · silver · gold · kundan
+        </div>
+    </section>
+
+    <!-- ===== PRIVACY POLICY ===== -->
+    <section id="privacy" class="page-section">
+        <h2 class="section-title"><i class="fas fa-shield-halved"></i> Privacy policy</h2>
+        <div class="legal-text">
+            <p><strong>Last updated:</strong> April 2025</p>
+            <p>At Shree Lucky Jewellers, we respect your privacy. This policy explains how we handle any personal information you share with us.</p>
+            
+            <h3>📌 Information we collect</h3>
+            <p>When you contact us via phone, email, or our contact form, we may collect your name, email address, phone number, and any message you provide. We only collect data necessary to serve you better.</p>
+
+            <h3>🔒 How we use your information</h3>
+            <ul>
+                <li>To respond to inquiries and provide customer support.</li>
+                <li>To share updates about our collections or offers (only if you opt in).</li>
+                <li>To improve our services and website experience.</li>
+            </ul>
+
+            <h3>🤝 Data sharing</h3>
+            <p>We never sell or rent your personal data. Trusted third parties (like email services) may assist us, but they are bound by confidentiality.</p>
+
+            <h3>🍪 Cookies</h3>
+            <p>This site does not use tracking cookies. Any local storage is used only for form preferences.</p>
+
+            <h3>📞 Contact</h3>
+            <p>For privacy concerns, reach us at <strong>shreeluckyjewellers@gmail.com</strong> or call 9672009050.</p>
+            <p><i class="fas fa-check-circle gold-text"></i> By using this site, you consent to this privacy policy.</p>
+        </div>
+    </section>
+
+    <!-- ===== TERMS AND CONDITIONS ===== -->
+    <section id="terms" class="page-section">
+        <h2 class="section-title"><i class="fas fa-scale-balanced"></i> Terms & conditions</h2>
+        <div class="legal-text">
+            <h3>📋 General</h3>
+            <p>These terms govern your use of the Shree Lucky Jewellers website. By accessing our site, you agree to be bound by them.</p>
+
+            <h4>💎 Products & pricing</h4>
+            <p>We strive for accuracy in descriptions and pricing. However, jewellery weights and designs may have slight variations. Prices are subject to change without notice. All purchases are subject to availability.</p>
+
+            <h4>✅ Orders & payment</h4>
+            <p>Orders can be placed via phone, email, or in person. Payment methods: cash, bank transfer, or UPI (details provided on request). Full payment is required before dispatch.</p>
+
+            <h4>🚚 Shipping & returns</h4>
+            <ul>
+                <li>We ship across India via insured courier. Shipping charges may apply.</li>
+                <li>Returns accepted within 7 days only if the item is defective or incorrect. Custom-made pieces are non-returnable.</li>
+                <li>Refunds are processed after inspection.</li>
+            </ul>
+
+            <h4>⚖️ Limitation of liability</h4>
+            <p>Shree Lucky Jewellers shall not be liable for any indirect or incidental damages arising from the use of this website or purchase of products.</p>
+
+            <h4>🇮🇳 Governing law</h4>
+            <p>These terms are governed by the laws of India, and any disputes shall fall under the jurisdiction of Jodhpur courts.</p>
+
+            <p><i class="fas fa-asterisk gold-text"></i> We reserve the right to update these terms at any time.</p>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT PAGE (with form & details) ===== -->
+    <section id="contact" class="page-section">
+        <h2 class="section-title"><i class="fas fa-paper-plane"></i> Contact us</h2>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: start;">
+            <div style="flex: 1 1 280px;">
+                <div style="background: #f2e8dd; border-radius: 40px; padding: 30px;">
+                    <p style="font-size: 1.6rem; margin-bottom: 5px;"><i class="fas fa-store gold-text"></i> Get in touch</p>
+                    <p style="font-size: 1.2rem; margin: 25px 0 10px;"><i class="fas fa-phone gold-text"></i> <strong>9672009050</strong></p>
+                    <p style="font-size: 1.2rem; margin: 15px 0;"><i class="fas fa-envelope gold-text"></i> shreeluckyjewellers@gmail.com</p>
+                    <p style="font-size: 1.2rem;"><i class="fas fa-map-pin gold-text"></i> Rajasthan, Jodhpur 342027</p>
+                    <hr style="width: 100%; margin: 30px 0 20px;">
+                    <p><i class="fas fa-clock gold-text"></i> Opening: 10:00 – 20:00 (Mon–Sat)</p>
+                </div>
+            </div>
+
+            <div style="flex: 2 1 400px;">
+                <form class="contact-form" action="#" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="far fa-user"></i> Your name</label>
+                            <input type="text" placeholder="e.g. Anita Sharma" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="far fa-envelope"></i> Email</label>
+                            <input type="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-mobile-alt"></i> Phone (optional)</label>
+                        <input type="tel" placeholder="96720....">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="far fa-comment-dots"></i> Message / enquiry</label>
+                        <textarea rows="5" placeholder="I'm interested in a gold necklace..." required></textarea>
+                    </div>
+                    <button class="submit-btn" type="submit"><i class="fas fa-paper-plane"></i> Send message</button>
+                    <p style="font-size: 0.95rem; margin-top: 8px; color: #6f5e51;">We’ll reply within 24 hours.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER with copyright & utility links -->
+<footer>
+    <div class="container footer-content">
+        <div style="font-size: 1.8rem; color: #e6cfb2;">
+            <i class="fas fa-ring"></i> Shree Lucky Jewellers
+        </div>
+        <div class="footer-links">
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#terms">Terms</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <hr>
+        <div class="copyright">
+            <i class="far fa-copyright"></i> 2025 Shree Lucky Jewellers. All rights reserved.
+        </div>
+        <div style="font-size: 1rem;">
+            📍 Rajasthan, Jodhpur – 342027  |  <i class="fas fa-phone"></i> 9672009050
+        </div>
+        <div style="opacity: 0.8;">✧ handcrafted with tradition ✧</div>
+    </div>
+</footer>
+
+<!-- dummy "form submitted" alert (prevents actual submit) -->
+<script>
+    (function() {
+        const forms = document.querySelectorAll('form');
+        forms.forEach(f => {
+            f.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('✨ Thank you for contacting Shree Lucky Jewellers. We will get back to you soon.');
+            });
+        });
+    })();
+</script>
+
+</body>
+</html>
